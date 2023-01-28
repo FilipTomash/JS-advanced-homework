@@ -1,5 +1,5 @@
 let number = 17359751892;
-    output = [];
+let output = [];
 
 while (number) {
     output.push(number % 10);
