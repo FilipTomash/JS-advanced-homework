@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit&family=Pacifico&display=swap');
+
+:root {
+    --color-white: #FFFFFF;
+    --color-black: black;
+    --color-primary: #010d23;
+    --color-accent: #ffd32a;
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family:'Kanit',sans-serif;
+}
+
+body {
+    background-image: url(https://images.unsplash.com/photo-1623476408624-721c9185d569?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80);
+    background-size: 200vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+#myHeader {
+    border: double 2px var(--color-black);
+    border-radius: 1px;
+    background-color: var(--color-accent);
+    color:var(--color-black);
+}
+
+#tableHeader{
+    font-size:  0.9rem;
+    color: var(--color-accent);
+    background-color: #010d23;
+}
+
+#tableBody {
+    font-size: 0.8rem;
+}
+
+table,
+th,
+td {
+    border: solid 1px var(--color-black);
+    border-radius: 2px;
+    color: var(--color-accent);
+    text-align: center;
+}
+
+th,
+td {
+    padding-inline: 1rem;
+}
+
+button{
+    font-size: 1rem;
+    background-color: var(--color-black);
+    color: var(--color-accent);
+    border-radius: 0.4rem;
+}
+
+button:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white)
+}

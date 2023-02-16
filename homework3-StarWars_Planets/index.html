@@ -6,32 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AJAX</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <h1>Exercise 2</h1>
+    <header id="myHeader">
+        <h1>Star Wars Planets</h1>
+    </header>
     <div id="result">
-        <h1></h1>
         <table id="myTable">
             <thead id="tableHeader">
                 <tr>
-                    <th>Height</th>
-                    <th>Weight</th>
-                    <th>Eye color</th>
-                    <th>Hair color</th>
+                    <th>Planet Name</th>
+                    <th>Population</th>
+                    <th>Climate</th>
+                    <th>Gravity</th>
                 </tr>
             </thead>
             <tbody id="tableBody">
-                <tr>
-                </tr>
             </tbody>
         </table>
     </div>
     <br>
-    <button id="callBtn">Get StarWars Heroes</button>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script src="app.js"></script>
+    <div class="myBtn">
+        <button id="callBtn">Planets</button>
+    </div>
+    <script src="script.js"></script>
 
 </body>
 
