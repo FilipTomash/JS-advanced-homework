@@ -26,9 +26,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 #myHeader {
+    text-align: center;
     border: double 2px var(--color-black);
     border-radius: 1px;
     background-color: var(--color-accent);

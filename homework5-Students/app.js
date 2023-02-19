@@ -1,62 +1,62 @@
-// async function () {
-//     await 
-// }
+const BASE_URL = "https://raw.githubusercontent.com/sedc-codecademy/skwd9-04-ajs/main/Samples/students_v2.json";
 
+async function callStudents(url) {
+    let response = await fetch(url);
+    let data = await response.json();
+    // console.log(data)
+    let averageGradeAboveThree = data.filter(function (student) { return student.averageGrade > 3 });
+    let namesOfStudents = averageGradeAboveThree.map(function (students) { return students.firstName });
+    console.log(`
+    ***********************************************
+        STUDENTS WITH AVERAGE GRADE ABOVE 3!
 
+    The names of the students with an average grade above 3 are:
+     ${namesOfStudents}.`,
+        averageGradeAboveThree,
+        "***************************************************");
+    let femaleStudendsGradeFive = data.filter(student => student.gender === "Female" && student.averageGrade === 5);
+    let nameOfFemaleStudents = femaleStudendsGradeFive.map(students => students.firstName);
+    console.log(`
+     ***********************************************
+         FEMALE STUDENTS WITH AVERAGE GRADE 5!
+ 
+     The names of the female students with an average grade of 5 are:
+      ${nameOfFemaleStudents}.`,
+        femaleStudendsGradeFive,
+        "***************************************************");
 
-let numbers = [2,3,5];
-function sumThree(num1,num2,num3){
-    return num1 + num2 + num3;
+    let maleStudentsSkopje18yOld = data.filter(student => student.gender === "Male" && student.city === "Skopje" && student.age > 18);
+    let fullNamesMaleStudents = maleStudentsSkopje18yOld.map(students => `${students.firstName} ${students.lastName}`);
+    console.log(`
+     ***********************************************
+         MALE STUDENTS FROM SKOPJE ABOVE 18!
+ 
+     The full names of the male students that live in Skopje and are over 18 years old are:
+      ${fullNamesMaleStudents}.`,
+        maleStudentsSkopje18yOld,
+        "***************************************************");
+    let femaleStudentsOver24y = data.filter(student => student.gender === "Female" && student.age > 24);
+    let avrgGradeFemale24y = femaleStudentsOver24y.map(student => student.averageGrade);
+    console.log(avrgGradeFemale24y);
+    console.log(`
+     ***********************************************
+         AVERAGE GRADES OF FEMALE STUDENTS OVER 24!
+ 
+     The average grades of all the female students that are over 24 years old are:
+      ${avrgGradeFemale24y}.`,
+        femaleStudentsOver24y,
+        "***************************************************");
+    let maleStudentsBGrade2 = data.filter(student => student.gender === "Male" && student.firstName.indexOf("B") === 0 && student.averageGrade > 2);
+    let namesOfStudentsB = maleStudentsBGrade2.map(student => student.firstName);
+    console.log(maleStudentsBGrade2);
+    console.log(`
+     ***********************************************
+         MALE STUDENTS WITH NAME STARTING IN B AND AVERAGE GRADE ABOVE 2!
+ 
+     The students with their first name staritng in 'B' and an average grade above 2 are:
+      ${namesOfStudentsB}.`,
+        maleStudentsBGrade2,
+        "***************************************************");
 }
-// We can call the function with the array values separately with spread syntax
-console.log(sumThree(...numbers));
 
-let dog = {
-    isHappy: true,
-    bark: function(){
-        console.log("BARK BARK BARK!")
-    }
-}
-
-let barnie = Object.create(dog); // barnie has everything dog has
-barnie.name = "Barnie";
-barnie.color = "White";
-barnie.age = 2;
-barnie.happyBirthday = function(){
-    console.log("Happy birthday Barnie!");
-    this.age++;
-}
-
-let barnieTwinBrother = Object.create(barnie); // the twin has everything barnie has
-barnieTwinBrother.name = "Booch"; // This name is added on the twin
-
-let addressInfo = {
-    street: "Dogge Street",
-    streetNumber: 24,
-    contactPerson: "0703452323"
-}
-
-let barnieChip = Object.assign(barnie, addressInfo); // copies from address to barnie
-
-let anotherAddress = {
-    street: "Other Street",
-    streetNumber: 12,
-    contactPerson: "072990002"
-}
-
-let barnieChipUpdate = Object.assign(barnieChip, anotherAddress); // overrides address values
-let barnieChipUpdateReversed = Object.assign(anotherAddress, barnieChip); // we have barnie without the changed address
-
-console.log(Object.keys(barnie));
-let dogg = {
-    name: "Sparky",
-    age: 1,
-    bark: function(){
-        console.log("BARK BARK BARK");
-    },
-    printProperties: function(){
-        Object.keys(this).forEach(key => console.log(key));
-    }
-}
-
-console.log(dogg.printProperties(this));
+callStudents(BASE_URL);
